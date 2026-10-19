@@ -90,6 +90,7 @@ def build(data, out_path):
         level.column_dimensions[get_column_letter(5 + 2 * i)].width = 14
 
     gap_counts = [0] * len(bidders)
+    counts = [{} for _ in bidders]
     row = 5
     first_item_row = row
     current_category = None
@@ -108,6 +109,8 @@ def build(data, out_path):
         for i, b in enumerate(bidders):
             entry = b.get("items", {}).get(item["id"], {})
             label = STATUS_LABEL.get(entry.get("status", "not_mentioned"), "Not mentioned")
+            if applies == "Y":
+                counts[i][label] = counts[i].get(label, 0) + 1
             if label in ("Excluded", "Not mentioned") and applies == "Y":
                 gap_counts[i] += 1
             cell = level.cell(row=row, column=4 + 2 * i, value=label)
@@ -210,7 +213,42 @@ def build(data, out_path):
     # Spreadsheet apps that cache nothing (previews, Numbers) recalculate on open.
     wb.calculation.fullCalcOnLoad = True
     wb.save(out_path)
+    cached = {}
+    for i, b in enumerate(bidders):
+        r = 5 + i
+        base = b.get("base_price")
+        cached[f"E{r}"] = 0
+        cached[f"F{r}"] = base if base is not None else ""
+        cached[f"G{r}"] = counts[i].get("Excluded", 0)
+        cached[f"H{r}"] = counts[i].get("Not mentioned", 0)
+        cached[f"I{r}"] = counts[i].get("Qualified", 0)
+    _cache_summary_values(out_path, cached)
     return gap_counts
+
+
+def _cache_summary_values(path, values):
+    """Store each Summary formula's starting result so viewers that don't
+    recalculate (file previews) still show totals. Excel recalculates anyway."""
+    import re
+    import shutil
+    import tempfile
+    import zipfile
+
+    sheet = "xl/worksheets/sheet1.xml"
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx").name
+    with zipfile.ZipFile(path) as src, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as dst:
+        for item in src.infolist():
+            data = src.read(item.filename)
+            if item.filename == sheet:
+                xml = data.decode("utf-8")
+                for ref, value in values.items():
+                    if value == "":
+                        xml = re.sub(rf'(<c r="{ref}"[^>]*)>(<f>.*?</f>)<v></v>', rf'\1 t="str">\2<v></v>', xml)
+                    else:
+                        xml = re.sub(rf'(<c r="{ref}"[^>]*>)(<f>.*?</f>)<v></v>', rf"\g<1>\g<2><v>{value}</v>", xml)
+                data = xml.encode("utf-8")
+            dst.writestr(item, data)
+    shutil.move(tmp, path)
 
 
 def main():

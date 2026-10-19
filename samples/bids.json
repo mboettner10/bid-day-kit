@@ -2,11 +2,11 @@
   "project": "Riverside Clinic TI (sample)",
   "trade": "Electrical",
   "checklist": "electrical",
-  "bid_date": "2026-11-04",
+  "bid_date": "2026-10-14",
   "bidders": [
     {
       "name": "Brightline Electric",
-      "quote_date": "2026-10-27",
+      "quote_date": "2026-10-06",
       "valid_days": 30,
       "base_price": 186400,
       "items": {
@@ -202,12 +202,12 @@
         "Is testing of the new system (megger, panel testing) included?",
         "Are as-built drawings and O&M manuals included at closeout?",
         "Does 'cleanup of our own debris' include haul-off, or is the dumpster by GC?",
-        "Exclusion 16 says any work not listed is excluded. Can you confirm you priced everything on E0.1-E4.2?"
+        "Exclusion 16 says any work not listed is excluded. Can you confirm you priced everything on E0.1-E4.2 dated 9/15/26?"
       ]
     },
     {
       "name": "Keystone Power & Light",
-      "quote_date": "2026-10-29",
+      "quote_date": "2026-10-08",
       "valid_days": 45,
       "base_price": 171250,
       "items": {
@@ -387,7 +387,7 @@
     },
     {
       "name": "Summit Electrical",
-      "quote_date": "2026-10-30",
+      "quote_date": "2026-10-09",
       "valid_days": null,
       "base_price": 198900,
       "items": {
