@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bid Day Kit</title>
+<meta name="description" content="Level subcontractor bids in minutes. Drop in the quotes, get a leveling sheet with every scope gap flagged and traced to the quote's own words.">
+<meta property="og:title" content="Bid Day Kit">
+<meta property="og:description" content="Level subcontractor bids in minutes, with every scope gap flagged.">
+<meta property="og:image" content="preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a bid-tab hero (the product's own output), then three short bands: how it works, free vs full kit, waitlist */
+:root{
+  --paper:#f7f8f6; --surface:#ffffff; --ink:#1b2630; --muted:#5b6873; --rule:#d8dee2;
+  --navy:#1f3b4d; --hi:#ffe066; --inc:#dcefe3; --inc-ink:#1e6b45; --exc:#f6d5d5; --exc-ink:#9b2c2c; --qual:#fbebcb; --qual-ink:#8a5a0f; --nm:#ededed; --nm-ink:#555;
+  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --body:"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#12181d; --surface:#1a2229; --ink:#e7ecef; --muted:#9daab3; --rule:#2c3740;
+  --navy:#2d5670; --hi:#6b5810; --inc:#1d3a2b; --inc-ink:#8fd3ad; --exc:#3d2224; --exc-ink:#f0a3a3; --qual:#3a2f17; --qual-ink:#ecc072; --nm:#2a3138; --nm-ink:#b4bcc2; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--body)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font:500 .78rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+mark{background:linear-gradient(transparent 55%,var(--hi) 55%);color:inherit;padding:0}
+header.top{padding-block:20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font:800 1.05rem var(--display);letter-spacing:.02em;text-decoration:none}
+.logo span{display:inline-block;width:.7em;height:.7em;background:var(--hi);margin-right:.4em;transform:translateY(.05em)}
+.btn{display:inline-block;font:700 1rem var(--display);background:var(--navy);color:#fff;text-decoration:none;border:0;border-radius:6px;padding:.8em 1.3em;cursor:pointer}
+.btn:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--rule)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:40px;align-items:center;padding-block:40px 64px}
+.hero-copy{display:grid;gap:20px}
+.hero-copy p.lead{font-size:1.2rem;color:var(--muted);max-width:34em}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.tab{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:8px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(20,40,60,.45);min-width:0}
+.tab-head{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--rule);font:500 .8rem var(--mono);color:var(--muted)}
+.tab-scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:480px}
+th,td{padding:8px 8px;border-bottom:1px solid var(--rule);text-align:left;white-space:nowrap}
+th{background:var(--navy);color:#fff;font:700 .78rem var(--display);letter-spacing:.03em}
+td.item{white-space:normal;min-width:150px}
+.s{display:inline-block;font-size:.78rem;font-weight:600;padding:2px 8px;border-radius:4px}
+.inc{background:var(--inc);color:var(--inc-ink)}.exc{background:var(--exc);color:var(--exc-ink)}.qual{background:var(--qual);color:var(--qual-ink)}.nm{background:var(--nm);color:var(--nm-ink)}
+tr.total td{font:500 .85rem var(--mono);background:var(--paper)}
+.tab-foot{padding:10px 16px;font-size:.85rem;color:var(--muted)}
+.tab-foot q{font-style:italic}
+section.band{padding-block:56px;border-top:1px solid var(--rule)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:28px}
+.step{display:grid;gap:8px;align-content:start}
+.step .n{font:500 .8rem var(--mono);color:var(--muted)}
+.step p{color:var(--muted)}
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px}
+.plan{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:24px;display:grid;gap:14px;align-content:start}
+.plan.full{border:2px solid var(--navy)}
+.price{font:800 1.9rem var(--display)}
+.price small{font:500 .85rem var(--mono);color:var(--muted);margin-left:.4em}
+.price s{color:var(--muted);font-weight:500;font-size:1.1rem;margin-right:.3em}
+.plan ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.waitlist{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.waitlist-copy{display:grid;gap:14px}
+.waitlist-copy p{color:var(--muted)}
+form{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:24px;display:grid;gap:16px}
+label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+input,select{font:inherit;font-weight:400;padding:.65em .8em;border:1px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink);width:100%}
+.fine{font-size:.85rem;color:var(--muted)}
+.msg{font-weight:600}
+.msg.ok{color:var(--inc-ink)}.msg.err{color:var(--exc-ink)}
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;margin-top:28px}
+.faq div{display:grid;gap:6px}
+.faq p{color:var(--muted)}
+footer{padding-block:32px 48px;border-top:1px solid var(--rule);color:var(--muted);font-size:.9rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width:860px){
+  .hero,.waitlist{grid-template-columns:minmax(0,1fr)}
+  .steps,.plans,.faq{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-block:16px 48px;gap:32px}
+}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-1px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#"><span aria-hidden="true"></span>Bid Day Kit</a>
+    <a class="btn ghost" href="#waitlist">Join the waitlist</a>
+  </header>
+
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">For estimators and GCs</div>
+      <h1>Level sub bids in minutes, and see <mark>what each one left out</mark>.</h1>
+      <p class="lead">Drop in your subcontractor quotes. Get back a leveling sheet with every scope item marked Included, Excluded, Qualified or Not mentioned, each one traced to the quote's own words.</p>
+      <div class="ctas">
+        <a class="btn" id="download" href="#">Get the free electrical version</a>
+        <a class="btn ghost" href="#waitlist">Join the full-kit waitlist</a>
+      </div>
+      <p class="fine">Runs inside the Claude app. Your quotes stay in your own account.</p>
+    </div>
+
+    <figure class="tab" aria-label="Example leveling sheet for three electrical bids">
+      <div class="tab-head"><span>Riverside Clinic TI · Electrical</span><span>3 bids · example</span></div>
+      <div class="tab-scroll">
+        <table>
+          <thead><tr><th>Scope item</th><th>Brightline</th><th>Keystone</th><th>Summit</th></tr></thead>
+          <tbody>
+            <tr><td class="item">Permits and inspection fees</td><td><span class="s inc">Included</span></td><td><span class="s exc">Excluded</span></td><td><span class="s inc">Included</span></td></tr>
+            <tr><td class="item">Temporary power and lighting</td><td><span class="s exc">Excluded</span></td><td><span class="s qual">Qualified</span></td><td><span class="s inc">Included</span></td></tr>
+            <tr><td class="item">Fire alarm panel and programming</td><td><span class="s inc">Included</span></td><td><span class="s qual">Qualified</span></td><td><span class="s inc">Included</span></td></tr>
+            <tr><td class="item">Firestopping</td><td><span class="s exc">Excluded</span></td><td><span class="s inc">Included</span></td><td><span class="s inc">Included</span></td></tr>
+            <tr><td class="item">Supervision / foreman on site</td><td><span class="s nm">Not mentioned</span></td><td><span class="s nm">Not mentioned</span></td><td><span class="s nm">Not mentioned</span></td></tr>
+            <tr class="total"><td>Base price</td><td>$186,400</td><td>$171,250</td><td>$198,900</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption class="tab-foot">Keystone, permits: <q>Permit fees (will be billed at cost)</q></figcaption>
+    </figure>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Three quotes in, one fair comparison out</h2>
+    <div class="steps">
+      <div class="step"><span class="n">Step 1</span><h3>Drop in the quotes</h3><p>PDFs or pasted emails, any format. Tell it anything job-specific, like "interior remodel, no site work".</p></div>
+      <div class="step"><span class="n">Step 2</span><h3>It reads every line</h3><p>Including the fine print, exclusion lists and "any work not listed" catch-alls. Each scope item gets a status and the exact quote line behind it.</p></div>
+      <div class="step"><span class="n">Step 3</span><h3>You make the call</h3><p>Open the Excel sheet, add your own cost for each gap, and compare adjusted totals. Send the drafted clarification questions to each sub.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Free tool and full kit</div>
+    <h2>Start free on electrical. Get every trade at launch.</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free: electrical</h3>
+        <div class="price">$0</div>
+        <ul>
+          <li>53-item electrical scope checklist</li>
+          <li>Leveling sheet with every gap flagged and traced to the quote</li>
+          <li>Clarification questions for each bidder</li>
+          <li>Alternates and allowances pulled out</li>
+        </ul>
+        <a class="btn ghost" id="download2" href="#">Get it free</a>
+      </div>
+      <div class="plan full">
+        <h3>Full kit: every trade</h3>
+        <div class="price"><s>$99</s>$59<small>early-bird, waitlist only</small></div>
+        <ul>
+          <li>Scope checklists for 20+ trades, from concrete to roofing</li>
+          <li>Clarification emails drafted for each sub</li>
+          <li>One-page bid-day summary across all trades</li>
+          <li>Sub question and change-order logs</li>
+          <li>A spreadsheet-only version for people who don't use Claude</li>
+        </ul>
+        <a class="btn" href="#waitlist">Join the waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="waitlist">
+  <div class="wrap waitlist">
+    <div class="waitlist-copy">
+      <div class="eyebrow">Waitlist</div>
+      <h2>Get the full kit first, at $59</h2>
+      <p>Join the waitlist and you'll get one email when the full kit launches, with the early-bird price. Tell us which trade you level most and we'll build that checklist first.</p>
+      <p>No spam. One launch email, and you can unsubscribe anytime.</p>
+    </div>
+    <form id="waitlist-form" novalidate>
+      <label for="email">Work email
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+      </label>
+      <label for="role">Your role
+        <select id="role" name="role">
+          <option value="">Choose one</option>
+          <option>Estimator</option>
+          <option>Preconstruction manager</option>
+          <option>Project manager</option>
+          <option>Owner / GC principal</option>
+          <option>Subcontractor</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label for="trade">Trade you level most
+        <select id="trade" name="trade">
+          <option value="">Choose one</option>
+          <option>Electrical</option>
+          <option>Mechanical / HVAC</option>
+          <option>Plumbing</option>
+          <option>Fire protection</option>
+          <option>Concrete</option>
+          <option>Drywall / framing</option>
+          <option>Roofing</option>
+          <option>Site work</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label for="volume">Bids you level per month
+        <select id="volume" name="volume">
+          <option value="">Choose one</option>
+          <option>1–5</option>
+          <option>6–20</option>
+          <option>21–50</option>
+          <option>More than 50</option>
+        </select>
+      </label>
+      <button class="btn" type="submit">Join the waitlist</button>
+      <p class="msg" id="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Questions</div>
+    <h2>Before you try it</h2>
+    <div class="faq">
+      <div><h3>What do I need to run it?</h3><p>The Claude app with a paid plan and skills turned on. You upload the skill once, then attach quotes in any chat.</p></div>
+      <div><h3>Does it pick the winning bid?</h3><p>No. It reads the quotes and flags gaps. You add your own costs for the gaps and make the call.</p></div>
+      <div><h3>How accurate is it?</h3><p>It only marks something Included when the quote says so, and shows you the line it relied on. When it isn't sure, it marks Not mentioned so you check.</p></div>
+      <div><h3>Where do my quotes go?</h3><p>Nowhere new. Everything happens in your own Claude account, and the sheet is saved to your computer.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>Bid Day Kit</span>
+    <span>Example bids on this page are from fictional companies.</span>
+  </footer>
+</div>
+
+<script>
+// Fill these in before publishing.
+const CONFIG = {
+  // Formspree form endpoint, like "https://formspree.io/f/abcdwxyz".
+  formEndpoint: "",
+  // Where the free tool lives, like "https://github.com/yourname/bid-day-kit".
+  repoUrl: ""
+};
+
+for (const id of ["download", "download2"]) {
+  const a = document.getElementById(id);
+  if (CONFIG.repoUrl) a.href = CONFIG.repoUrl;
+}
+
+const form = document.getElementById("waitlist-form");
+const msg = document.getElementById("form-msg");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  msg.className = "msg";
+  const email = form.email.value.trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    msg.textContent = "Enter a valid email address.";
+    msg.classList.add("err");
+    form.email.focus();
+    return;
+  }
+  if (!CONFIG.formEndpoint) {
+    msg.textContent = "Sign-ups open soon. This form isn't connected yet.";
+    msg.classList.add("err");
+    return;
+  }
+  const button = form.querySelector("button");
+  button.disabled = true;
+  try {
+    const res = await fetch(CONFIG.formEndpoint, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: new FormData(form)
+    });
+    if (!res.ok) throw new Error(res.status);
+    form.reset();
+    msg.textContent = "You're on the list. We'll email you once, at launch.";
+    msg.classList.add("ok");
+  } catch {
+    msg.textContent = "That didn't go through. Check your connection and try again.";
+    msg.classList.add("err");
+  } finally {
+    button.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
