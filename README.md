@@ -26,7 +26,7 @@ The `samples` folder has three quotes from made-up companies for a made-up proje
 ## What it doesn't do
 
 - It doesn't pick a winner or estimate the cost of a gap. That's your judgment.
-- It only covers electrical. The full kit adds 20+ trades, clarification emails, a bid-day summary, and question and change-order logs. **[Join the waitlist](WAITLIST_URL)** for early access and an early-bird price.
+- It only covers electrical. The full kit adds 20+ trades, clarification emails, a bid-day summary, and question and change-order logs. **[Join the waitlist](https://mboettner10.github.io/bid-day-kit/#waitlist)** for early access and an early-bird price.
 
 ## Privacy
 
