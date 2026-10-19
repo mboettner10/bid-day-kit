@@ -150,6 +150,7 @@ def build(data, out_path):
     if data.get("bid_date"):
         summary["A2"] = f'Bids due {data["bid_date"]}'
     header(summary, 4, ["Bidder", "Quote date", "Valid (days)", "Base price", "Your adjustments", "Adjusted total", "Excluded", "Not mentioned", "Qualified"])
+    summary.row_dimensions[4].height = 34
     for i, b in enumerate(bidders):
         r = 5 + i
         adj_col = get_column_letter(5 + 2 * i)
@@ -206,6 +207,8 @@ def build(data, out_path):
                 extras.cell(row=r, column=4).number_format = MONEY
                 r += 1
 
+    # Spreadsheet apps that cache nothing (previews, Numbers) recalculate on open.
+    wb.calculation.fullCalcOnLoad = True
     wb.save(out_path)
     return gap_counts
 

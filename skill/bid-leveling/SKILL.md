@@ -30,7 +30,7 @@ This free version ships with the **electrical** checklist (`checklists/electrica
 7. **Write `bids.json`** in the format below, then run:
    `python3 scripts/build_sheet.py bids.json "<Project> - Electrical leveling.xlsx"`
    The script needs `openpyxl` (`pip install openpyxl`).
-8. **Report back in a few lines**: the bidders and their base prices, how many gaps each has, the three gaps most likely to move price, and the file name. Remind the estimator to enter their own cost estimates for gaps in the "Adjustment $" columns so the adjusted totals compare fairly.
+8. **Report back in a few lines**: the bidders and their base prices, each bidder's gaps (excluded plus not mentioned, counting only items that apply) with qualified items reported separately, matching the Summary tab, the three gaps most likely to move price, and the file name. Remind the estimator to enter their own cost estimates for gaps in the "Adjustment $" columns so the adjusted totals compare fairly.
 
 ## bids.json format
 
