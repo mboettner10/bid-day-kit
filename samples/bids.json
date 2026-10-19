@@ -1,0 +1,547 @@
+{
+  "project": "Riverside Clinic TI (sample)",
+  "trade": "Electrical",
+  "checklist": "electrical",
+  "bid_date": "2026-11-04",
+  "bidders": [
+    {
+      "name": "Brightline Electric",
+      "quote_date": "2026-10-27",
+      "valid_days": 30,
+      "base_price": 186400,
+      "items": {
+        "E01": {
+          "status": "included",
+          "quote": "Electrical permit and inspection fees",
+          "page": 1
+        },
+        "E02": {
+          "status": "excluded",
+          "quote": "Bond (add 1.5% if required)",
+          "page": 1,
+          "note": "About $2,800 if a bond is required"
+        },
+        "E04": {
+          "status": "excluded",
+          "quote": "Overtime or off-hours work",
+          "page": 1
+        },
+        "E06": {
+          "status": "qualified",
+          "quote": "Cleanup of our own debris to GC dumpster",
+          "page": 1,
+          "note": "Own debris only; dumpster by GC"
+        },
+        "E08": {
+          "status": "included",
+          "quote": "Shop drawings and submittals",
+          "page": 1
+        },
+        "E10": {
+          "status": "included",
+          "quote": "One-year warranty on labor and material",
+          "page": 1
+        },
+        "E11": {
+          "status": "excluded",
+          "quote": "Temporay power and lighting (by GC)",
+          "page": 1
+        },
+        "E13": {
+          "status": "excluded",
+          "quote": "Utility co. charges, fees, or aid to construction",
+          "page": 1
+        },
+        "E16": {
+          "status": "included",
+          "quote": "New 400A panelboards LP-1 and LP-2",
+          "page": 1
+        },
+        "E17": {
+          "status": "included",
+          "quote": "75 kVA dry-type transformer",
+          "page": 1
+        },
+        "E18": {
+          "status": "included",
+          "quote": "Grounding and bonding per NEC",
+          "page": 1
+        },
+        "E21": {
+          "status": "included",
+          "quote": "Branch circuit wiring, receptacles and devices",
+          "page": 1
+        },
+        "E22": {
+          "status": "included",
+          "quote": "Mechanical equipment connections",
+          "page": 1
+        },
+        "E23": {
+          "status": "qualified",
+          "quote": "VFDs furnished by mechanical, installed and wired by Brightline",
+          "page": 1,
+          "note": "Install and wire only"
+        },
+        "E26": {
+          "status": "qualified",
+          "quote": "Alternate 1: Add EV charger rough-in for 4 stalls: add $9,800",
+          "page": 1,
+          "note": "Only as an alternate, not in the base bid"
+        },
+        "E27": {
+          "status": "included",
+          "quote": "Light fixtures furnished and installed per fixture schedule",
+          "page": 1
+        },
+        "E28": {
+          "status": "included",
+          "quote": "Light fixtures furnished and installed per fixture schedule",
+          "page": 1
+        },
+        "E29": {
+          "status": "included",
+          "quote": "Lighting controls and occupancy sensors per plans",
+          "page": 1
+        },
+        "E30": {
+          "status": "included",
+          "quote": "Emergency and exit lighting",
+          "page": 1
+        },
+        "E38": {
+          "status": "included",
+          "quote": "Fire alarm system design, permit and installation, including devices and panel",
+          "page": 1
+        },
+        "E40": {
+          "status": "excluded",
+          "quote": "Data / telecom cabling & terminations",
+          "page": 1
+        },
+        "E41": {
+          "status": "included",
+          "quote": "boxes, conduit stubbed above ceiling with pull string",
+          "page": 1
+        },
+        "E42": {
+          "status": "excluded",
+          "quote": "Security, access control, CCTV",
+          "page": 1
+        },
+        "E43": {
+          "status": "excluded",
+          "quote": "Security, access control, CCTV",
+          "page": 1
+        },
+        "E45": {
+          "status": "excluded",
+          "quote": "Fire caulking / firestoping",
+          "page": 1
+        },
+        "E49": {
+          "status": "excluded",
+          "quote": "Cutting, patching & painting",
+          "page": 1
+        },
+        "E52": {
+          "status": "excluded",
+          "quote": "Arc flash / short circuit / coordination study",
+          "page": 1
+        },
+        "E24": {
+          "status": "qualified",
+          "quote": "Owner furnished equipment connections not shown on E-sheets",
+          "page": 1,
+          "note": "Excluded only if not shown on the E-sheets"
+        },
+        "E33": {
+          "status": "excluded",
+          "quote": "Trenching, excavation, backfill",
+          "page": 1
+        },
+        "E35": {
+          "status": "excluded",
+          "quote": "Concrete pads, housekeeping pads, encasement",
+          "page": 1
+        },
+        "E36": {
+          "status": "excluded",
+          "quote": "Cutting, patching & painting",
+          "page": 1
+        },
+        "E46": {
+          "status": "excluded",
+          "quote": "Seismic bracing / engineering",
+          "page": 1
+        },
+        "E47": {
+          "status": "excluded",
+          "quote": "Roof penetrations and flashing",
+          "page": 1
+        },
+        "E50": {
+          "status": "excluded",
+          "quote": "Access panels",
+          "page": 1
+        }
+      },
+      "alternates": [
+        {
+          "description": "Add EV charger rough-in for 4 stalls",
+          "price": 9800
+        }
+      ],
+      "allowances": [],
+      "unmatched": [
+        "Exclusion 16: \"Any work not specifically listed above\""
+      ],
+      "questions": [
+        "Does your price include fire alarm monitoring setup, or is that by others?",
+        "Are lifts and equipment rental included?",
+        "Is testing of the new system (megger, panel testing) included?",
+        "Are as-built drawings and O&M manuals included at closeout?",
+        "Does 'cleanup of our own debris' include haul-off, or is the dumpster by GC?",
+        "Exclusion 16 says any work not listed is excluded. Can you confirm you priced everything on E0.1-E4.2?"
+      ]
+    },
+    {
+      "name": "Keystone Power & Light",
+      "quote_date": "2026-10-29",
+      "valid_days": 45,
+      "base_price": 171250,
+      "items": {
+        "E01": {
+          "status": "excluded",
+          "quote": "Permit fees (will be billed at cost)",
+          "page": 1,
+          "note": "Billed at cost on top of the bid"
+        },
+        "E04": {
+          "status": "excluded",
+          "quote": "Overtime",
+          "page": 1
+        },
+        "E07": {
+          "status": "included",
+          "quote": "Scissor lift included",
+          "page": 1
+        },
+        "E11": {
+          "status": "qualified",
+          "quote": "Temporary power and lighting for construction included for duration of 10 weeks",
+          "page": 1,
+          "note": "Limited to 10 weeks"
+        },
+        "E12": {
+          "status": "excluded",
+          "quote": "energy usage by others",
+          "page": 1
+        },
+        "E14": {
+          "status": "qualified",
+          "quote": "Assumes existing 800A service is adequate; no service upgrade included",
+          "page": 1
+        },
+        "E16": {
+          "status": "included",
+          "quote": "panelboards and transformer",
+          "page": 1
+        },
+        "E17": {
+          "status": "included",
+          "quote": "panelboards and transformer",
+          "page": 1
+        },
+        "E18": {
+          "status": "included",
+          "quote": "grounding",
+          "page": 1
+        },
+        "E21": {
+          "status": "included",
+          "quote": "branch wiring and devices",
+          "page": 1
+        },
+        "E22": {
+          "status": "included",
+          "quote": "connections to HVAC and plumbing equipment",
+          "page": 1
+        },
+        "E27": {
+          "status": "qualified",
+          "quote": "fixtures provided via an allowance of $38,000 included in the lump sum",
+          "page": 1,
+          "note": "Allowance, not a firm fixture price"
+        },
+        "E28": {
+          "status": "included",
+          "quote": "installation of light fixtures",
+          "page": 1
+        },
+        "E29": {
+          "status": "included",
+          "quote": "lighting controls",
+          "page": 1
+        },
+        "E30": {
+          "status": "included",
+          "quote": "exit and emergency lights",
+          "page": 1
+        },
+        "E38": {
+          "status": "qualified",
+          "quote": "Fire alarm: devices and wiring only; panel, programming and monitoring by others",
+          "page": 1
+        },
+        "E39": {
+          "status": "excluded",
+          "quote": "panel, programming and monitoring by others",
+          "page": 1
+        },
+        "E40": {
+          "status": "excluded",
+          "quote": "Low voltage, data, security, sound, CCTV, CATV, energy management",
+          "page": 1
+        },
+        "E41": {
+          "status": "not_mentioned",
+          "note": "'Low voltage' is excluded, but it's unclear whether empty conduit and boxes for low voltage are included"
+        },
+        "E42": {
+          "status": "excluded",
+          "quote": "Low voltage, data, security, sound, CCTV, CATV, energy management",
+          "page": 1
+        },
+        "E43": {
+          "status": "excluded",
+          "quote": "Low voltage, data, security, sound, CCTV, CATV, energy management",
+          "page": 1
+        },
+        "E44": {
+          "status": "excluded",
+          "quote": "Low voltage, data, security, sound, CCTV, CATV, energy management",
+          "page": 1
+        },
+        "E45": {
+          "status": "included",
+          "quote": "Firestopping of our penetrations included",
+          "page": 1
+        },
+        "E06": {
+          "status": "excluded",
+          "quote": "Trash removal",
+          "page": 1
+        },
+        "E10": {
+          "status": "qualified",
+          "quote": "Warranty on third-party or owner furnished equipment",
+          "page": 1,
+          "note": "Excludes warranty on others' equipment; no warranty term stated for their own work"
+        },
+        "E13": {
+          "status": "excluded",
+          "quote": "Utility company charges and government tariffs, taxes or fees",
+          "page": 1
+        },
+        "E33": {
+          "status": "excluded",
+          "quote": "Concrete, saw cutting or excavation",
+          "page": 1
+        },
+        "E36": {
+          "status": "excluded",
+          "quote": "Concrete, saw cutting or excavation",
+          "page": 1
+        },
+        "E47": {
+          "status": "excluded",
+          "quote": "Rooftop penetrations",
+          "page": 1
+        }
+      },
+      "alternates": [],
+      "allowances": [
+        {
+          "description": "Light fixtures (included in lump sum)",
+          "amount": 38000
+        }
+      ],
+      "unmatched": [
+        "Wire upsizing for voltage drop excluded",
+        "Keyed notes not shown on electrical sheets excluded",
+        "Mobilization billed at 10%; payment net 30",
+        "Price includes $7,250 sales tax on materials"
+      ],
+      "questions": [
+        "Roughly what do you expect permit fees to be, since they're billed at cost?",
+        "Who furnishes the fire alarm panel, and is programming by a separate vendor?",
+        "If the 800A service turns out inadequate, what would an upgrade cost?",
+        "What happens to temporary power if the job runs past 10 weeks?",
+        "Are shop drawings, submittals and as-builts included?",
+        "Long feeder runs on this job may need upsized wire for voltage drop. What would that add?",
+        "Which keyed notes did you leave out as 'not shown on electrical sheets'?",
+        "What warranty do you give on your own labor and material?",
+        "Does your scope include empty conduit and boxes for low voltage?"
+      ]
+    },
+    {
+      "name": "Summit Electrical",
+      "quote_date": "2026-10-30",
+      "valid_days": null,
+      "base_price": 198900,
+      "items": {
+        "E01": {
+          "status": "included",
+          "quote": "including permits",
+          "page": 1
+        },
+        "E02": {
+          "status": "included",
+          "quote": "Payment and performance bond included",
+          "page": 1
+        },
+        "E03": {
+          "status": "included",
+          "quote": "(prevailing wage rates)",
+          "page": 1
+        },
+        "E09": {
+          "status": "included",
+          "quote": "as-built drawings and O&M manuals",
+          "page": 1
+        },
+        "E11": {
+          "status": "included",
+          "quote": "temporary power and lighting",
+          "page": 1
+        },
+        "E16": {
+          "status": "included",
+          "quote": "panelboards",
+          "page": 1
+        },
+        "E17": {
+          "status": "included",
+          "quote": "transformer",
+          "page": 1
+        },
+        "E21": {
+          "status": "included",
+          "quote": "branch circuits and devices",
+          "page": 1
+        },
+        "E22": {
+          "status": "included",
+          "quote": "mechanical connections",
+          "page": 1
+        },
+        "E27": {
+          "status": "included",
+          "quote": "fixtures furnished and installed",
+          "page": 1
+        },
+        "E28": {
+          "status": "included",
+          "quote": "fixtures furnished and installed",
+          "page": 1
+        },
+        "E29": {
+          "status": "included",
+          "quote": "lighting controls",
+          "page": 1
+        },
+        "E30": {
+          "status": "included",
+          "quote": "emergency lighting",
+          "page": 1
+        },
+        "E36": {
+          "status": "excluded",
+          "quote": "Patching and painting",
+          "page": 1
+        },
+        "E38": {
+          "status": "included",
+          "quote": "complete fire alarm system",
+          "page": 1
+        },
+        "E39": {
+          "status": "qualified",
+          "quote": "with monitoring for the first year",
+          "page": 1,
+          "note": "First year only"
+        },
+        "E40": {
+          "status": "qualified",
+          "quote": "structured data cabling (Cat6, 64 drops, tested and labeled)",
+          "page": 1,
+          "note": "64 drops; extra drops $185 each"
+        },
+        "E42": {
+          "status": "excluded",
+          "quote": "Access control and CCTV",
+          "page": 1
+        },
+        "E43": {
+          "status": "excluded",
+          "quote": "Access control and CCTV",
+          "page": 1
+        },
+        "E45": {
+          "status": "included",
+          "quote": "firestopping",
+          "page": 1
+        },
+        "E48": {
+          "status": "qualified",
+          "quote": "Demolition of existing electrical beyond make-safe (make-safe included)",
+          "page": 1
+        },
+        "E49": {
+          "status": "excluded",
+          "quote": "Patching and painting",
+          "page": 1
+        },
+        "E51": {
+          "status": "included",
+          "quote": "testing",
+          "page": 1
+        },
+        "E53": {
+          "status": "qualified",
+          "quote": "owner training (2 hours)",
+          "page": 1
+        }
+      },
+      "alternates": [],
+      "allowances": [],
+      "unmatched": [
+        "BUDGET PRICE - subject to review of final permit drawings",
+        "Unit price: additional data drop $185 each"
+      ],
+      "questions": [
+        "Your quote is marked as a budget price. Will you firm it up before bid day?",
+        "How long is your price valid?",
+        "Does your scope match the 64 data drops on the drawings?",
+        "Is grounding and bonding included?",
+        "Is any demolition beyond make-safe required on this job, and who carries it?"
+      ]
+    }
+  ],
+  "not_applicable": [
+    "E13",
+    "E15",
+    "E19",
+    "E25",
+    "E26",
+    "E31",
+    "E32",
+    "E33",
+    "E34",
+    "E35",
+    "E37",
+    "E46",
+    "E47"
+  ]
+}
